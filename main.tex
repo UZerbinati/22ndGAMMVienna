@@ -44,7 +44,7 @@
 			}
 		}
 		\put(0,-75){%
-			\begin{minipage}[b][4.5cm][t]{0.5\textwidth}
+			\begin{minipage}[b][4.5cm][t]{0.7\textwidth}
 				\color{white}
 				\usebeamerfont{title}
 				{\inserttitle\\[0.9cm]}
@@ -139,7 +139,7 @@
 \lstset{style=mystyle}
 
 %% Information (author, title, etc.) %%
-\title[Acoustic Rarefied Nematic Liquid Crystals]{Anisotropic Acoustic \vspace{0.1cm}\\ Waves In Rarefied Nematic\\ \\Liquid Crystals} % short title for footer
+\title[Acoustic Rarefied Nematic Liquid Crystals]{Anisotropic Acoustic Waves \vspace{0.2cm}\\ In Rarefied Nematic Liquid Crystals} % short title for footer
 \author%
 {%
 	\sc{P. E. Farrell} *, \underline{\sc{U. Zerbinati}} *\\
@@ -278,6 +278,7 @@
 			f^{(0)} (\vec{v},\vec{\omega}) = n \frac{\sin(\alpha_2)Q}{\int Q \sin(\alpha_2)d\vec{\alpha}}\frac{m^{\frac{3}{2}}}{2\pi \theta}^3(\Gamma_1\Gamma_2\Gamma_3)^{\frac{1}{2}}\exp\Big[-m\frac{\abs{\vec{V}}}{2\theta}-\frac{\vec{\Omega}\cdot\mathbb{I}\cdot\vec{\Omega}}{2\theta}\Big]
 		\end{equation}
 		where the \textbf{peculiar angular velocity} defined as $\vec{\Omega}=\vec{\omega}-\vec{\omega}_0$, $\Gamma_i$ are the moments of inertia of the spherocylinder we are considering and $Q$ is defined as $Q = \exp\Big[\frac{\vec{\omega}_0\cdot\mathbb{I}\cdot\vec{\omega}_0}{2\theta}\Big]$.\\
+		\vspace{0.2cm}
 		Notice in particular that we assumed $\vec{\omega}_0$ and the \textbf{kinetic temperature} $\theta = \langle\langle \frac{m}{2}\vec{V}\cdot \vec{V}+\frac{1}{2}\vec{\Omega}\cdot \mathbb{I}\cdot \vec{\Omega}\rangle\rangle$ are fixed.
 	\end{frame}
 	\begin{frame}
@@ -293,6 +294,71 @@
 			\Big[\partial_t \vec{v}_0 + (\nabla_{\vec{r}}\vec{v}_0)\vec{v}_0\Big]=-\frac{1}{\rho}\nabla p,\label{eq:KTEuler}
 		\end{equation}
 		which is the well known \textbf{Euler equation} that if linearised yield the \textbf{wave equation}.\\{\color{red}\textbf{Unfortunately}} same procedure result in a {\color{red}\textbf{vanishing}} $\mathbb{N}^{(0)}$.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Balance Laws For Kinetic Temperature}
+		$\newline$
+		We need an other way to formulate \textbf{constitutive relation} for the \textbf{couple tensor}, we begin observing that testing $\psi^{(4)}$ we get the following balance law:
+		\begin{equation}
+			\dot{\psi} + \nabla_{\vec{r}}\vec{v}_0:\mathbb{P}+\nabla_{\vec{r}}\vec{\omega}_0:\mathbb{N} - \nabla\cdot\Big[\mathbb{P}^T\vec{v}_0+\mathbb{N}^T\vec{\omega}_0\Big]\geq 0
+		\end{equation}
+		where $\psi = \langle\langle \theta \rangle\rangle$.
+		We add $\vec{\xi}$ and observe that if we integrate with appropriate boundary condition the expression is the \textbf{rate of work} theorem that was the starting point of Leslie-Ericksen theory
+		\begin{equation}
+			\dot{\psi} + \nabla_{\vec{r}}\vec{v}_0:\mathbb{P}+\nabla_{\vec{r}}\vec{\omega}_0:\mathbb{N} - \nabla\cdot\Big[\mathbb{P}^T\vec{v}_0+\mathbb{N}^T\vec{\omega}_0\Big]+{\color{red}\vec{\xi}}\geq 0\label{eq:PowerExpanded}
+		\end{equation}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Noll--Coleman Procedure}
+		$\newline$
+		Since we are happy with our \textbf{pressure tensor} so far we make the following \textbf{ansatz}
+		\begin{equation}
+			\psi = \psi(\nu,\nabla\nu)
+		\end{equation}
+		where $\nu$ is the \textbf{nematic director}. Expanding the total derivative and using Ericksen identity we get the following expression in tensor notation
+		\begin{align}
+			\dot{\psi} = \varepsilon_{iqp}\Big[(\nu_q \frac{\partial\psi}{\partial(\nu_p)}+\partial_k(\nu_q)\frac{\partial\psi}{\partial(\partial_k\nu_p)})\omega^0_i&+\nu_q\frac{\partial\psi}{\partial(\partial_k\nu_p)}\partial_k\omega^0_i\Big]\\&-\frac{\partial\psi}{\partial(\partial_k\nu_p)}\partial_q(\nu_p)\partial(v^0_q)
+		\end{align}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Noll--Coleman Procedure}
+		$\newline$
+		$\newline$
+		Substituting this expression inside of \eqref{eq:PowerExpanded} and considering thermodynamic process for which the exact divergences disappear we get:
+		\vspace{-0.3cm}
+		\begin{align}
+			\Big[\mathbb{P}_{ij}+\frac{\partial\psi}{\partial(\partial_j\nu_p)}\partial_i(\nu_p)\Big]\partial_j(\nu_i)&+\Big[N_{ij}-\varepsilon_{iqp}\nu_q\frac{\partial \psi}{\partial(\partial_j \nu_p)}\Big]\partial_j(\omega^0_i)\\
+			&\Big[P_{pq}-\frac{\partial\psi}{\partial(\partial_p\nu_k)\partial_q(\nu_k)}\Big]\varepsilon_{iqp}\omega^0_i\geq0\label{eq:NollColeman}
+		\end{align}
+		Once again since the above expression must hold for all thermodynamic process for which the exact divergences disappear we get the following \textbf{constitutive relations}:
+		\vspace{-0.3cm}
+		\begin{equation}
+			\mathbb{P} = \nabla\vec{\nu}^T \frac{\partial\psi}{\partial(\nabla\vec{\nu})}+\mathbb{P}^{(0)}, \qquad N_{ij} = \varepsilon_{iqp} \nu_q \frac{\partial\psi}{\partial(\partial_j\nu_p)}={\color{red}\vec{\nu} \times\frac{\partial\psi}{\partial(\nabla\vec{\nu})}}
+		\end{equation}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Anisotropic Waves}
+		$\newline$
+		It can be showed that steady spherical solution of \eqref{eq:KT3} are of the form $\vec{\nu} = \frac{\vec{r}}{\abs{\vec{r}}}$ and that $\nabla\vec{\nu}^T\nabla\vec{\nu} = \vec{Id}-\vec{\nu}\otimes\vec{\nu}$. Therefore for this particular case we have the following choice of \textbf{pressure tensor}:
+		\begin{equation}
+			\mathbb{P} = \mathbb{P}^{(0)}+\vec{Id}+\vec{\nu}\otimes\vec{\nu}.
+		\end{equation}
+		If we linearise the \textbf{Euler equation} with this choice of \textbf{pressure tensor} we get the eave equation:
+		\begin{equation}
+			\partial_t^2p - \nabla\cdot \Big[(\vec{Id}+\vec{\nu}\otimes\vec{\nu})\nabla p\Big]=0.
+		\end{equation}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Anisotropic Waves}
+		And it is well known that when we have a planer wave 
+		\begin{equation}
+			p(\vec{r},t) = A\cos(\vec{k}\cdot\vec{r}-\omega t)
+		\end{equation}
+		travelling in a transversely isotropic medium has speed of sound
+		\begin{equation}
+			\boxed{c_s =  (1+cos(\theta))^2}
+		\end{equation}
+		where $\theta$ is the angle between $\vec{k}$ and $\vec{\nu}$.
 	\end{frame}
 	\begin{frame}[t, allowframebreaks]
 		\frametitle{References}
