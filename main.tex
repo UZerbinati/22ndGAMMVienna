@@ -9,6 +9,9 @@
 \usepackage{listings}
 \usepackage{animate}
 \usepackage{bm}
+\usepackage{mathtools}
+\usepackage{physics}
+\mathtoolsset{showonlyrefs}
 \beamertemplatenavigationsymbolsempty
 
 \let\vec\bm
@@ -81,8 +84,8 @@
 		\put(-8,-20){%
 			\normalsize\textbf{\color{oxfordblue}\insertframetitle}
 		}
-		\put(-7,-25){%
-			\small\color{oxfordblue}\insertframesubtitle
+		\put(-8,-32){%
+			\normalsize\textbf{\color{oxfordblue}\insertframesubtitle}
 		}
 	\end{picture}
 }
@@ -139,7 +142,7 @@
 \title[Acoustic Rarefied Nematic Liquid Crystals]{Anisotropic Acoustic \vspace{0.1cm}\\ Waves In Rarefied Nematic\\ \\Liquid Crystals} % short title for footer
 \author%
 {%
-	\sc{P. E. Farrell} *,\underline{\sc{U. Zerbinati}} *\\
+	\sc{P. E. Farrell} *, \underline{\sc{U. Zerbinati}} *\\
 }
 \institute%
 {%
@@ -202,7 +205,7 @@
 		$\newline$
 		This led Curtiss to formulate the following \textbf{Boltzmann} type equation,
 		\begin{equation}
-			\partial_t f + \nabla_{\vec{r}}\cdot(\vec{v}f)+\nabla_{\vec{\alpha}}\cdot(\dot{\vec{\alpha}}f) = C[f,f]
+			\partial_t f + \nabla_{\vec{r}}\cdot(\vec{v}f)+\nabla_{\vec{\alpha}}\cdot(\dot{\vec{\alpha}}f) = C[f,f]\label{eq:Boltzman}
 		\end{equation}
 		where $f(\vec{r},\vec{v},\vec{\alpha},\vec{\omega})$ is the usual first reduced distribution function and $C[f,f]$ is the collision operator defined as
 		\begin{equation}
@@ -210,6 +213,86 @@
 		\end{equation}
 		with $\S(\vec{k})d\vec{k}$ being the surface element of the excluded volume and $\vec{g}=\vec{v}-\vec{v}_1$.
 		Here with out loss of generality the equation is stated in \textbf{absence of external force} and \textbf{torque}.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Collision Invariants}
+		$\newline$
+		$\newline$
+		$\newline$
+		It is possible to prove that the following quantities are \textbf{collision invariants} for $C[f,f]$, i.e.
+		\begin{equation}
+			\int\int\int \psi^{(i)}d\vec{v}_1d\vec{\omega}_1d\vec{\alpha}_1 = 0.
+		\end{equation}
+		\begin{itemize}
+			\item[\color{oxfordblue}$\blacktriangleright$] $\psi^{(1)}=1$, the \textbf{number of particle} in the system;
+			\item[\color{oxfordblue}$\blacktriangleright$] $\psi^{(2)}=m\vec{v}$, the \textbf{linear momentum};
+			\item[\color{oxfordblue}$\blacktriangleright$] $\psi^{(3)}=\mathbb{I}\footnote{\vspace{1cm}The inertia tensor for the spherocylinder we are considering.}\cdot\omega+\vec{r}\times m\vec{v}$, the \textbf{angular momentum};
+			\item[\color{oxfordblue}$\blacktriangleright$] $\psi^{(4)}=\frac{1}{2}m\vec{v}\cdot \vec{v} + \frac{1}{2}\vec{\omega}\cdot\mathbb{I}\cdot\vec{\omega}$, the \textbf{kinetic energy of the system}.
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		$\newline$
+		$\newline$
+		\frametitle{The Hydrodynamic Equations -- Notation}
+		We first introduce the \textbf{number density}, i.e.
+		\begin{equation}
+			n(\vec{r})= \int\int\int f(\vec{r},\vec{v},\vec{\alpha},\vec{\omega}) d\vec{v}d\vec{\alpha}d\vec{\omega}.
+		\end{equation}
+		Then we can give a meaning to the following \textit{chevrons}, i.e.
+		\begin{equation}
+			\langle\langle\cdot \rangle\rangle(\vec{r}) = \frac{1}{n(\vec{r})}\int\int\int \cdot\; f(\vec{r},\vec{v},\vec{\alpha},\vec{\omega}) d\vec{v}d\vec{\alpha}d\vec{\omega}.
+		\end{equation}
+		Using this notation we can define \textbf{macroscopic stream velocity} and \textbf{macroscopic stream angular velocity} respectively as:
+		\begin{equation}
+			\vec{v}_0 := \langle\langle \vec{v} \rangle\rangle, \qquad \vec{\omega}_0 := \langle\langle \vec{\omega} \rangle\rangle.
+		\end{equation}
+	\end{frame}
+	\begin{frame}
+		$\newline$
+		$\newline$
+		\frametitle{The Hydrodynamic Equations -- Curtis Balance Laws}
+		Testing \eqref{eq:Boltzman} against the first two \textbf{collision invariants} and integrating  Curtis obtained the following \textbf{balance laws}:
+		\begin{equation}
+			\partial_t\rho + \nabla_{\vec{r}}\cdot(\rho\vec{v}_0)\label{eq:KT1}=0,
+		\end{equation}
+		\begin{equation}
+			\rho \Big[\partial_t \vec{v}_0 + (\nabla_{\vec{r}}\vec{v}_0)\vec{v}_0\Big]+\nabla_{\vec{r}}\cdot(\rho \mathbb{P})=0,\label{eq:KT2}
+		\end{equation}
+		where $\rho$ is the \textbf{density} defined as $\rho(\vec{r})=mn(\vec{r})$ and $\mathbb{P}$ is the \textbf{pressure tensor} defined as $\mathbb{P}=\langle\langle\vec{V}\otimes \vec{V}\rangle\rangle$, with $V$ being the \textbf{peculiar velocity} $\vec{V}:=\vec{v}-\vec{v}_0$.
+	\end{frame}
+	\begin{frame}
+		$\newline$
+		$\newline$
+		\frametitle{The Hydrodynamic Equations -- Surprise Balance Laws}
+		For the third collision invariant we took a different rout then Curtis, which led to the following balance law
+		\begin{equation}
+			\rho \Big[\partial_t \vec{\eta} + (\nabla_{\vec{r}}\vec{\eta})\vec{v}_0\Big]+\nabla_{\vec{r}}\cdot(\rho \mathbb{N})=\vec{\xi},\label{eq:KT3}
+		\end{equation}
+		where $\vec{\eta}$ is the \textbf{macroscopic intrinsic angular momentum} defined as $\vec{\eta}(\vec{r})=\langle\langle \mathbb{I} \cdot \omega \rangle\rangle$ and $\mathbb{P}$ is the \textbf{couple tensor} defined as $\mathbb{N}=\langle\langle\vec{V}\otimes(\mathbb{I}\vec{\omega}\rangle\rangle$. Here $\vec{\xi}$ is defined in tensor notation as $\langle\langle mn(\varepsilon_{lki} v_iv_k)\vec{e}_l\rangle\rangle$ and we proved that $\vec{\xi}$ vanish (as stated by Curtis in \cite{Curtiss}) in this particular setting.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Maxwell-Boltzmann Distribution}
+		$\newline$
+		In \cite{Curtiss} Curtis gives an expression for the Maxwell-Boltzmann distribution, i.e. such distribution $f^{(0)}$ such that $C[f^{(0)},f^{(0)}]$ vanish.
+		\begin{equation}
+			f^{(0)} (\vec{v},\vec{\omega}) = n \frac{\sin(\alpha_2)Q}{\int Q \sin(\alpha_2)d\vec{\alpha}}\frac{m^{\frac{3}{2}}}{2\pi \theta}^3(\Gamma_1\Gamma_2\Gamma_3)^{\frac{1}{2}}\exp\Big[-m\frac{\abs{\vec{V}}}{2\theta}-\frac{\vec{\Omega}\cdot\mathbb{I}\cdot\vec{\Omega}}{2\theta}\Big]
+		\end{equation}
+		where the \textbf{peculiar angular velocity} defined as $\vec{\Omega}=\vec{\omega}-\vec{\omega}_0$, $\Gamma_i$ are the moments of inertia of the spherocylinder we are considering and $Q$ is defined as $Q = \exp\Big[\frac{\vec{\omega}_0\cdot\mathbb{I}\cdot\vec{\omega}_0}{2\theta}\Big]$.\\
+		Notice in particular that we assumed $\vec{\omega}_0$ and the \textbf{kinetic temperature} $\theta = \langle\langle \frac{m}{2}\vec{V}\cdot \vec{V}+\frac{1}{2}\vec{\Omega}\cdot \mathbb{I}\cdot \vec{\Omega}\rangle\rangle$ are fixed.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Momentum Closure Around The Equilibrium}
+		$\newline$
+		$\newline$
+		Now we can use the previous distribution to compute an approximation of the \textbf{pressure tensor} near the equilibrium, i.e.
+		\begin{equation}
+			\mathbb{P}^{(0)} = \theta \vec{Id}
+		\end{equation}
+		We can define the \textbf{pressure} as $p=\rho\theta\footnote{\vspace{0.8cm}This shows that the pressure is a monotonically increasing function of the density which is needed in order to have a positive speed of sound.}$ and rewrite,
+		\begin{equation}
+			\Big[\partial_t \vec{v}_0 + (\nabla_{\vec{r}}\vec{v}_0)\vec{v}_0\Big]=-\frac{1}{\rho}\nabla p,\label{eq:KTEuler}
+		\end{equation}
+		which is the well known \textbf{Euler equation} that if linearised yield the \textbf{wave equation}.\\{\color{red}\textbf{Unfortunately}} same procedure result in a {\color{red}\textbf{vanishing}} $\mathbb{N}^{(0)}$.
 	\end{frame}
 	\begin{frame}[t, allowframebreaks]
 		\frametitle{References}
