@@ -223,7 +223,7 @@
 		$\newline$
 		It is possible to prove that the following quantities are \textbf{collision invariants} for $C[f,f]$, i.e.
 		\begin{equation}
-			\int\!\!\!\!\int\!\!\!\!\int \psi^{(i)}d\vec{v}_1d\vec{\omega}_1d\vec{\alpha}_1 = 0.
+			\int\!\!\!\!\int\!\!\!\!\int \psi^{(i)}C[f,f]d\vec{v}_1d\vec{\omega}_1d\vec{\alpha}_1 = 0.
 		\end{equation}
 		\begin{itemize}
 			\item[\color{oxfordblue}$\blacktriangleright$] $\psi^{(1)}=1$, the \textbf{number of particles} in the system;
@@ -337,19 +337,19 @@
 		Since the above expression must hold for all thermodynamic processes for which the exact divergences disappear, we get the following \textbf{constitutive relations}:
 		\vspace{-0.3cm}
 		\begin{equation}
-			\mathbb{P} = \nabla\vec{\nu}^T \frac{\partial\psi}{\partial(\nabla\vec{\nu})}+\mathbb{P}^{(0)}, \qquad N_{ij} = \varepsilon_{iqp} \nu_q \frac{\partial\psi}{\partial(\partial_j\nu_p)}={\color{red}\vec{\nu} \times\frac{\partial\psi}{\partial(\nabla\vec{\nu})}}.
+			\mathbb{P} = {\color{red}\nabla\vec{\nu}^T \frac{\partial\psi}{\partial(\nabla\vec{\nu})}}+\mathbb{P}^{(0)}, \qquad N_{ij} = \varepsilon_{iqp} \nu_q \frac{\partial\psi}{\partial(\partial_j\nu_p)}={\color{red}\vec{\nu} \times\frac{\partial\psi}{\partial(\nabla\vec{\nu})}}.
 		\end{equation}
 	\end{frame}
 	\begin{frame}
 		\frametitle{Anisotropic waves}
 		$\newline$
-		It can be shown that steady spherical solutions of \eqref{eq:KT3} are of the form $\vec{\nu} = \frac{\vec{r}}{\abs{\vec{r}}}$ and that $\nabla\vec{\nu}^T\nabla\vec{\nu} = \vec{Id}-\vec{\nu}\otimes\vec{\nu}$. Therefore for this particular case we have the following choice of \textbf{pressure tensor}:
+		It can be shown that steady spherical solutions of \eqref{eq:KT3} verify $\nabla\vec{\nu}^T\nabla\vec{\nu} \approx \vec{Id}+\vec{\nu}\otimes\vec{\nu}$. Therefore for this particular case we have the following choice of \textbf{pressure tensor}:
 		\begin{equation}
 			\mathbb{P} = \mathbb{P}^{(0)}+\vec{Id}+\vec{\nu}\otimes\vec{\nu}.
 		\end{equation}
 		If we linearise the \textbf{Euler equation} with this choice of \textbf{pressure tensor} we get the wave equation:
 		\begin{equation}
-			\partial_t^2p - \nabla\cdot \Big[(\vec{Id}+\vec{\nu}\otimes\vec{\nu})\nabla p\Big]=0.
+			\partial_t^2p - \nabla\cdot \Big[(	\langle\!\langle\theta+1\rangle\!\rangle\vec{Id}+\vec{\nu}\otimes\vec{\nu})\nabla p\Big]=0.
 		\end{equation}
 	\end{frame}
 	\begin{frame}
@@ -360,10 +360,10 @@
 		\end{equation}
 		travelling in a transversely isotropic medium has speed of sound
 		\begin{equation}
-			\boxed{c_s =  (1+cos(\theta))^2}
+			\boxed{c_s =  (c+cos(\gamma))^2}
 		\end{equation}
-		where $\theta$ is the angle between $\vec{k}$ and $\vec{\nu}$.
-		A similar reasoning was presented in \cite{BiscariEtAll}, where a theory for anisotropic waves in \textbf{dense} liquid crystals is developed.
+		where $\gamma$ is the angle between $\vec{k}$ and $\vec{\nu}$.
+		A similar reasoning was presented in \cite{BiscariEtAll}, where a theory for anisotropic waves in \textbf{dense} \textbf{liquid} crystals is developed.
 	\end{frame}
 	\begin{frame}
 		\frametitle{Conclusions}
@@ -373,6 +373,9 @@
 			\item[\color{oxfordblue}$\blacktriangleright$] Using a Noll--Coleman argument for the closure of the momentum hierarchy allows us to capture the anisotropy of acoustic waves in rarefied liquid crystals.
 			\item[\color{oxfordblue}$\blacktriangleright$] We hope to use the relations that arise from the closure procedure presented today to compute Frank constants from $\mathbb{I}$, the inertia tensor of the spherocylinder we are considering.
 		\end{itemize}
+		\begin{center}
+			\textbf{Thank you for the attention !}
+		\end{center}
 	\end{frame}
 	\begin{frame}[t, allowframebreaks]
 		\frametitle{References}
