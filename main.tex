@@ -213,7 +213,7 @@
 		\begin{equation}
 			C[f,f] = - \int\!\!\!\!\int\!\!\!\!\int\!\!\!\!\int (f_1^{'}f^{'}-f_1f)(\vec{k}\cdot\vec{g})S(\vec{k})d\vec{k}d\vec{v}_1d\vec{\alpha}_1d\vec{\omega}_1
 		\end{equation}
-		with $\S(\vec{k})d\vec{k}$ being the surface element of the excluded volume and $\vec{g}=\vec{v}-\vec{v}_1$.
+		with $S(\vec{k})d\vec{k}$ being the surface element of the excluded volume and $\vec{g}=\vec{v}-\vec{v}_1$.
 		Here without loss of generality the equation is stated in \textbf{absence of external force} and \textbf{torque}.
 	\end{frame}
 	\begin{frame}
@@ -260,7 +260,7 @@
 		\begin{equation}
 			\rho \Big[\partial_t \vec{v}_0 + (\nabla_{\vec{r}}\vec{v}_0)\vec{v}_0\Big]+\nabla_{\vec{r}}\cdot(\rho \mathbb{P})=0,\label{eq:KT2}
 		\end{equation}
-		where $\rho$ is the \textbf{density} defined as $\rho(\vec{r})=mn(\vec{r})$ and $\mathbb{P}$ is the \textbf{pressure tensor} defined as $\mathbb{P}=\langle\!\langle\vec{V}\otimes \vec{V}\rangle\!\rangle$, with $V$ being the \textbf{peculiar velocity} $\vec{V}\coloneqq\vec{v}-\vec{v}_0$.
+		where $\rho$ is the \textbf{density} defined as $\rho(\vec{r})=mn(\vec{r})$ and $\mathbb{P}$ is the \textbf{pressure tensor} defined as $\mathbb{P}\coloneqq\langle\!\langle\vec{V}\otimes \vec{V}\rangle\!\rangle$, with $V$ being the \textbf{peculiar velocity} $\vec{V}\coloneqq\vec{v}-\vec{v}_0$.
 	\end{frame}
 	\begin{frame}
 		$\newline$
@@ -268,9 +268,9 @@
 		\frametitle{The hydrodynamic equations -- surprise balance laws}
 		For the third collision invariant we took a different route than Curtiss, which led to the following balance law
 		\begin{equation}
-			\rho \Big[\partial_t \vec{\eta} + (\nabla_{\vec{r}}\vec{\eta})\vec{v}_0\Big]+\nabla_{\vec{r}}\cdot(\rho \mathbb{N})=\vec{\xi},\label{eq:KT3}
+			\rho \Big[\partial_t \vec{\eta} + (\nabla_{\vec{r}}\vec{\eta})\vec{v}_0\Big]+\nabla_{\vec{r}}\cdot(\rho \mathbb{N})={\color{red}\vec{\xi}},\label{eq:KT3}
 		\end{equation}
-		where $\vec{\eta}$ is the \textbf{macroscopic intrinsic angular momentum} defined as $\vec{\eta}(\vec{r})=\langle\!\langle \mathbb{I} \cdot \omega \rangle\!\rangle$ and $\mathbb{N}$ is the \textbf{couple tensor} defined as $\mathbb{N}=\langle\!\langle\vec{V}\otimes(\mathbb{I}\vec{\omega})\rangle\!\rangle$. Here $\vec{\xi}$ is defined in tensor notation as $\langle\!\langle mn(\varepsilon_{lki} v_iv_k)\vec{e}_l\rangle\!\rangle$ and we proved that $\vec{\xi}$ vanishes (as stated by Curtiss in \cite{Curtiss}) in this particular setting.
+		where $\vec{\eta}$ is the \textbf{macroscopic intrinsic angular momentum} defined as $\vec{\eta}(\vec{r})\coloneqq\langle\!\langle \mathbb{I} \cdot \omega \rangle\!\rangle$ and $\mathbb{N}$ is the \textbf{couple tensor} defined as $\mathbb{N}\coloneqq\langle\!\langle\vec{V}\otimes(\mathbb{I}\vec{\omega})\rangle\!\rangle$. Here $\xi_l$ is defined in tensor notation as $\langle\!\langle mn(\varepsilon_{lki} v_iv_k)\vec{e}_l\rangle\!\rangle$ and we proved that $\vec{\xi}$ vanishes (as stated by Curtiss in \cite{Curtiss}) in this particular setting.
 	\end{frame}
 	\begin{frame}
 		\frametitle{Maxwell--Boltzmann distribution}
@@ -281,7 +281,7 @@
 		\end{equation}
 		where the \textbf{peculiar angular velocity} defined as $\vec{\Omega} \coloneqq \vec{\omega}-\vec{\omega}_0$, $\Gamma_i$ are the moments of inertia of the spherocylinder we are considering and $Q \coloneqq \exp\Big[\frac{\vec{\omega}_0\cdot\mathbb{I}\cdot\vec{\omega}_0}{2\theta}\Big]$.\\
 		\vspace{0.2cm}
-		Notice in particular that we assumed $\vec{\omega}_0$ and the \textbf{kinetic temperature} $\theta = \langle\!\langle \frac{m}{2}\vec{V}\cdot \vec{V}+\frac{1}{2}\vec{\Omega}\cdot \mathbb{I}\cdot \vec{\Omega}\rangle\!\rangle$ are fixed.
+		Notice in particular that we assumed $\vec{\omega}_0$ and the \textbf{kinetic temperature} $\theta = \frac{m}{2}\vec{V}\cdot \vec{V}+\frac{1}{2}\vec{\Omega}\cdot \mathbb{I}\cdot \vec{\Omega}$ are fixed.
 	\end{frame}
 	\begin{frame}
 		\frametitle{Momentum closure around the equilibrium}
@@ -363,6 +363,16 @@
 			\boxed{c_s =  (1+cos(\theta))^2}
 		\end{equation}
 		where $\theta$ is the angle between $\vec{k}$ and $\vec{\nu}$.
+		A similar reasoning was presented in \cite{BiscariEtAll}, where a theory for anisotropic waves in \textbf{dense} liquid crystals is developed.
+	\end{frame}
+	\begin{frame}
+		\frametitle{Conclusions}
+		$\newline$
+		\begin{itemize}
+			\item[\color{oxfordblue}$\blacktriangleright$] First order theory arise naturally from Boltzman type equation even for rod-like molecules.
+			\item[\color{oxfordblue}$\blacktriangleright$] Using a Noll-Coleman argument for the closure of the the momentum hierarchy allows us to capture the anisotropy of acoustic waves in rarefied liquid crystals.
+			\item[\color{oxfordblue}$\blacktriangleright$] We hope to use the relation that arise from the closure procedure presented today to compute Frank constants from $\mathbb{I}$, the inertia tensor of the spherocylinder we are considering.
+		\end{itemize}
 	\end{frame}
 	\begin{frame}[t, allowframebreaks]
 		\frametitle{References}
